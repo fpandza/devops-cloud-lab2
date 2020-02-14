@@ -35,5 +35,5 @@ script:
 
 after_success:
   - docker login -u $DOCKER_USER -p $DOCKER_PASS
-  - docker tag my_docker_reposetory/swagger_server my_docker_reposetory/swagger_server
-  - docker push my_docker_reposetory/swagger_server
+  - docker tag devops_cloud_lab2/swagger_server devops_cloud_lab2/swagger_server
+  - docker push devops_cloud_lab2/swagger_server
