@@ -67,6 +67,30 @@ paths:
         "404":
           description: "student not found"
       x-swagger-router-controller: "swagger_server.controllers.default_controller"
+  /student/:
+    get:
+      summary: "Find student by Last Name"
+      description: "Returns a single student"
+      operationId: "get_student_by_last_name"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "last_name"
+        in: "query"
+        description: "Last name of student to return"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Student"
+        "400":
+          description: "Invalid Last name supplied"
+        "404":
+          description: "student not found"
+      x-swagger-router-controller: "swagger_server.controllers.default_controller"
     delete:
       summary: "Delete student by ID"
       description: ""
@@ -104,11 +128,9 @@ definitions:
         type: "string"
       grades:
         type: "object"
-        additionalProperties:
-          type: "string"
+        properties: {}
     example:
       student_id: 0
       last_name: "last_name"
-      grades:
-        key: "grades"
+      grades: "{}"
       first_name: "first_name"
